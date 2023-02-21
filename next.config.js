@@ -1,6 +1,18 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+
+module.exports = {
+  trailingSlash: true,
+  reactStrictMode: false,
+  experimental: {
+    esmExternals: false
+  },
+  webpack: config => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+    }
+
+    return config
+  }
+}
